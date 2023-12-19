@@ -1,4 +1,5 @@
 {{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__pinterest_ads_enabled','pinterest__using_keywords']),
+    unique_key = ['source_relation','ad_group_id','keyword_id','_fivetran_synced'],
     partition_by={
       "field": "_fivetran_synced", 
       "data_type": "TIMESTAMP",
