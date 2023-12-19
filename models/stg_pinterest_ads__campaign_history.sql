@@ -1,4 +1,5 @@
 {{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True),
+    unique_key = ['source_relation','campaign_id','_fivetran_synced'],
     partition_by={
       "field": "created_at", 
       "data_type": "TIMESTAMP",
