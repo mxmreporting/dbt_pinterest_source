@@ -1,7 +1,7 @@
 {{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True),
     partition_by={
       "field": "date_day", 
-      "data_type": "date",
+      "data_type": "TIMESTAMP",
       "granularity": "day"
     }
     ) }}
