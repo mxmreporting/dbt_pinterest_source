@@ -1,7 +1,7 @@
 {{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True),
     unique_key = ['source_relation','pin_promotion_id','_fivetran_synced'],
     partition_by={
-      "field": "created_at", 
+      "field": "_fivetran_synced", 
       "data_type": "TIMESTAMP",
       "granularity": "day"
     }
