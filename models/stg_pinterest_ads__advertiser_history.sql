@@ -38,12 +38,12 @@ final as (
         id as advertiser_id,
         name as advertiser_name,
         country,
-        created_time as created_at,
+        CAST(FORMAT_TIMESTAMP("%F %T", created_time, "America/New_York") AS TIMESTAMP) as created_at,    --EST Conversion
         currency as currency_code,
         owner_user_id,
         owner_username,
         advertiser_permissions, -- permissions was renamed in macro
-        updated_time as updated_at,
+        CAST(FORMAT_TIMESTAMP("%F %T", updated_time, "America/New_York") AS TIMESTAMP) as updated_at,    --EST Conversion
         row_number() over (partition by source_relation, id order by updated_time desc) = 1 as is_most_recent_record
     from fields
 )
