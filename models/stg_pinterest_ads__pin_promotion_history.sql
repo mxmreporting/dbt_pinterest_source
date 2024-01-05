@@ -39,7 +39,7 @@ final as (
         id as pin_promotion_id,
         ad_account_id as advertiser_id,
         ad_group_id,
-        created_time as created_at,
+        CAST(FORMAT_TIMESTAMP("%F %T", created_time, "America/New_York") AS TIMESTAMP) as created_at,    --EST Conversion
         destination_url,
         {{ dbt.split_part('destination_url', "'?'", 1) }} as base_url,
         {{ dbt_utils.get_url_host('destination_url') }} as url_host,
@@ -53,7 +53,7 @@ final as (
         pin_id,
         status as pin_status,
         creative_type,
-        _fivetran_synced,
+        CAST(FORMAT_TIMESTAMP("%F %T", _fivetran_synced, "America/New_York") AS TIMESTAMP) as _fivetran_synced,        --EST Converison
         row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
