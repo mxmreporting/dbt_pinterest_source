@@ -39,10 +39,10 @@ final as (
         name as ad_group_name,
         status as ad_group_status,
         ad_account_id as advertiser_id,
-        _fivetran_synced,
+        CAST(FORMAT_TIMESTAMP("%F %T", _fivetran_synced, "America/New_York") AS TIMESTAMP) as _fivetran_synced,        --EST Converison
         campaign_id,
-        created_time as created_at,
-        end_time,
+        CAST(FORMAT_TIMESTAMP("%F %T", created_time, "America/New_York") AS TIMESTAMP) as created_at,    --EST Conversion
+        CAST(FORMAT_TIMESTAMP("%F %T", end_time, "America/New_York") AS TIMESTAMP) as end_time,    --EST Conversion    
         pacing_delivery_type,
         placement_group,
         start_time,
