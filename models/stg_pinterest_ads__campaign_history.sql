@@ -43,8 +43,8 @@ final as (
         is_campaign_budget_optimization,
         is_flexible_daily_budgets,
         status as campaign_status,
-        _fivetran_synced,
-        created_time as created_at,
+        CAST(FORMAT_TIMESTAMP("%F %T", _fivetran_synced, "America/New_York") AS TIMESTAMP) as _fivetran_synced,        --EST Converison
+        CAST(FORMAT_TIMESTAMP("%F %T", created_time, "America/New_York") AS TIMESTAMP) as created_at,    --EST Conversion
         row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
