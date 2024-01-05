@@ -38,7 +38,7 @@ final as (
         id as keyword_id,
         value as keyword_value,
         _fivetran_id,
-        _fivetran_synced,
+        CAST(FORMAT_TIMESTAMP("%F %T", _fivetran_synced, "America/New_York") AS TIMESTAMP) as _fivetran_synced,        --EST Converison
         ad_group_id,
         advertiser_id,
         archived,
