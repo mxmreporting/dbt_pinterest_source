@@ -20,7 +20,7 @@ vars:
   pinterest__keyword_report_passthrough_metrics: []
 models:
   pinterest_source:
-    +schema: pinterest_source
+    +schema: pinterestads_stg_dev
     +materialized: table
     tmp:
       +materialized: view
