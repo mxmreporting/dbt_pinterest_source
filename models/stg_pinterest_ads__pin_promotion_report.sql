@@ -42,8 +42,11 @@ final as (
         advertiser_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
-        spend_in_micro_dollar / 1000000.0 as spend
-
+        spend_in_micro_dollar / 1000000.0 as spend,
+        total_lead,
+        total_click_add_to_cart,
+        total_checkout
+    
         {{ fivetran_utils.fill_pass_through_columns('pinterest__pin_promotion_report_passthrough_metrics') }}
 
     from fields
