@@ -45,7 +45,10 @@ final as (
         spend_in_micro_dollar / 1000000.0 as spend,
         total_lead,
         total_click_add_to_cart,
-        total_checkout
+        total_checkout,
+        total_click_signup,
+        total_click_view_category,
+        total_watch_video
 
         {{ fivetran_utils.fill_pass_through_columns('pinterest__pin_promotion_report_passthrough_metrics') }}
 
