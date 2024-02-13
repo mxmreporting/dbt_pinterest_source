@@ -14,7 +14,10 @@
     {"name": "spend_in_micro_dollar", "datatype": dbt.type_numeric()},
     {"name": "total_lead", "datatype": dbt.type_numeric()},
     {"name": "total_click_add_to_cart", "datatype": dbt.type_numeric()},
-    {"name": "total_checkout", "datatype": dbt.type_int()}
+    {"name": "total_checkout", "datatype": dbt.type_int()},
+    {"name": "total_click_signup", "datatype": dbt.type_int()},
+    {"name": "total_click_view_category", "datatype": dbt.type_int()},
+    {"name": "total_watch_video", "datatype": dbt.type_int()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('pinterest__pin_promotion_report_passthrough_metrics')) }}
