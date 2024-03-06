@@ -48,7 +48,16 @@ final as (
         total_checkout,
         total_click_signup,
         total_click_view_category,
-        total_watch_video
+        total_watch_video,
+        cpc_in_micro_dollar,
+        cpm_in_micro_dollar,
+        ctr,
+        ctr_2,
+        ectr,
+        total_impression_frequency,
+        total_impression_user,
+        video_p_100_complete_1,
+        video_p_100_complete_2
 
         {{ fivetran_utils.fill_pass_through_columns('pinterest__pin_promotion_report_passthrough_metrics') }}
 
