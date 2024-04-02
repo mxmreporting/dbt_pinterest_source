@@ -35,7 +35,6 @@ final as (
 
     select
         source_relation, 
-        --CAST(FORMAT_TIMESTAMP("%F %T", {{ dbt.date_trunc('day', 'date') }}, "America/New_York") AS TIMESTAMP) as date_day,        --EST timezone conversion
         {{ dbt.date_trunc('day', 'date') }} as date_day,
         campaign_id,
         campaign_name,
