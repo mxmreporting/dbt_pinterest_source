@@ -35,7 +35,6 @@ final as (
 
     select
         source_relation, 
-        --CAST(FORMAT_TIMESTAMP("%F %T", {{ dbt.date_trunc('day', 'date') }}, "America/New_York") AS TIMESTAMP) as date_day,        --EST timezone conversion
         {{ dbt.date_trunc('day', 'date') }} as date_day,
         advertiser_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
